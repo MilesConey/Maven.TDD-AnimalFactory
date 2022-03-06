@@ -2,7 +2,9 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 
 import java.util.Date;
 
@@ -40,4 +42,97 @@ public class CatTest {
         Assert.assertEquals(givenId, retrievedId);
     }
 
+    @Test
+    public void setNameTest() {
+        //Given
+        String expectedName = "Zula";
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+        cat.setName(expectedName);
+        String actualName = cat.getName();
+
+        //Then
+        Assert.assertEquals(expectedName, actualName);
+    }
+
+    @Test
+    public void setSpeakTest() {
+        //Given
+        String expected = "meow!";
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+        cat.speak();
+        String actual = cat.speak();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void eatTest() {
+        //Given
+        Food food = new Food();
+        int numberOfMealsExpected = 1;
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+        cat.eat(food);
+        int actual = cat.getNumberOfMealsEaten();
+
+        //Then
+        Assert.assertEquals(numberOfMealsExpected, actual);
+    }
+
+    @Test
+    public void setBirthDateTest() {
+        //Given
+        Date birthDateExpected = new Date(6 - 10 - 2021);
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+        cat.setBirthDate(birthDateExpected);
+        Date actual = cat.getBirthDate();
+
+        //Then
+        Assert.assertEquals(birthDateExpected, actual);
+    }
+
+    @Test
+    public void getIdTest() {
+        //Given
+        int idExpected = 3;
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+        int actual = cat.getId();
+
+        //Then
+        Assert.assertEquals(idExpected, actual);
+    }
+
+    // https://www.baeldung.com/java-instanceof
+
+    @Test
+    public void AnimalInheritanceTest() {
+        //Given
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+
+        //Then
+        Assert.assertTrue(cat instanceof Animal);
+    }
+
+    @Test
+    public void MammalInheritanceTest() {
+        //Given
+
+        //When
+        Cat cat = new Cat("fluffy", new Date(8), 3);
+
+        //Then
+        Assert.assertTrue(cat instanceof Mammal);
+    }
 }

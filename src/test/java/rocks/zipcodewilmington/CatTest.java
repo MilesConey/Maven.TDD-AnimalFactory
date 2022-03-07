@@ -24,7 +24,7 @@ public class CatTest {
     @Test
     public void constructorTest() {
         // Given (cat data)
-        String givenName = "Zula";
+        String givenName = "Mario";
         Date givenBirthDate = new Date();
         Integer givenId = 0;
 
@@ -45,7 +45,7 @@ public class CatTest {
     @Test
     public void setNameTest() {
         //Given
-        String expectedName = "Zula";
+        String expectedName = "Mario";
 
         //When
         Cat cat = new Cat("fluffy", new Date(8), 3);
